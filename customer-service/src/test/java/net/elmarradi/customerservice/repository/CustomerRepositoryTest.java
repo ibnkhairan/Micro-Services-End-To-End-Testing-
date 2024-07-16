@@ -55,7 +55,7 @@ class CustomerRepositoryTest {
                 Customer.builder().firstName("Mohamed").lastName("Youssfi").email("med@gmail.com").build(),
                 Customer.builder().firstName("Imane").lastName("Ikram").email("imane@gmail.com").build()
         );
-        List<Customer> result = customerRepository.findByFirstNameContainsIgnoreCase(keyword);
+        List<Customer> result = customerRepository.findByFirstNameContainingIgnoreCase(keyword);
         assertThat(result).isNotNull();
         assertThat(result.size()).isEqualTo(listExpected.size());
         assertThat(result).usingRecursiveComparison().ignoringFields("id").isEqualTo(listExpected);
